@@ -22,6 +22,9 @@ function populateFirst(e) {
   firstString += e.target.textContent;
   firstNumber = Number(firstString);
   console.log(firstNumber);
+  console.log(secondDisplay);
+  firstDisplay = firstNumber;
+  textDisplay.textContent = firstDisplay + ' ' + operatorDisplay + ' ' + secondDisplay + ' ';
 
 }
 
@@ -32,9 +35,33 @@ function populateSecond(e) {
   result = operate(operator, firstNumber, secondNumber);
   console.log(result);
   firstNumber = operate(operator, firstNumber, secondNumber);
+  secondDisplay = secondNumber;
+  textDisplay.textContent = firstDisplay + ' ' + operatorDisplay + ' ' + secondDisplay + ' ';
   console.log(firstNumber);
   secondString = '';
   secondNumber = 0;
+  firstDisplay = textDisplay.textContent;
+  secondDisplay = '';
+  operatorDisplay = '';
+  console.log(firstDisplay);
+  console.log(secondDisplay);
+  console.log(operatorDisplay);
+
+
+
+}
+
+function populateOperator(e) {
+  operator = e.target.textContent;
+  numberBtn.forEach(btn => {
+    btn.removeEventListener('click', populateFirst);
+  })
+  numberBtn.forEach(btn => {
+    btn.addEventListener('click', populateSecond);
+  })
+  console.log(operator);
+  operatorDisplay = operator;
+  textDisplay.textContent = firstDisplay + ' ' + operatorDisplay + ' ' + secondDisplay + ' ';
 }
 
 function operate(operator, a, b) {
@@ -63,30 +90,11 @@ function clear() {
   numberBtn.forEach(btn => {
     btn.addEventListener('click', populateFirst);
   })
-  textDisplay.textContent = '0';
+  firstDisplay = '';
+  secondDisplay = '';
+  operatorDisplay = '';
+  textDisplay.textContent = firstDisplay + ' ' + operatorDisplay + ' ' + secondDisplay + ' ';
 }
-
-function populateOperator(e) {
-  operator = e.target.textContent;
-  numberBtn.forEach(btn => {
-    btn.removeEventListener('click', populateFirst);
-  })
-  numberBtn.forEach(btn => {
-    btn.addEventListener('click', populateSecond);
-  })
-  console.log(operator);
-}
-function populateOperatorTwo(e) {
-  operator += e.target.textContent;
-  numberBtn.forEach(btn => {
-    btn.removeEventListener('click', populateSecond);
-  })
-  numberBtn.forEach(btn => {
-    btn.addEventListener('click', populateFirst);
-  })
-  console.log(operator);
-}
-
 
 let textDisplay = document.querySelector('#result');
 let firstString = '';
@@ -98,12 +106,17 @@ let numberBtn = document.querySelectorAll('#numberBtn');
 let result = 0;
 let clearBtn = document.querySelector('#clearBtn');
 let equalBtn = document.querySelector('#equalBtn');
+let firstDisplay = ' ';
+let secondDisplay = ' ';
+let operatorDisplay = ' ';
+
+textDisplay.textContent = firstDisplay + ' ' + operatorDisplay + ' ' + secondDisplay + ' ';
 
 clearBtn.onclick = clear;
-equalBtn.onclick = function(){
+equalBtn.onclick = function () {
   textDisplay.textContent = result;
 };
-textDisplay.textContent = '0';
+
 
 numberBtn.forEach(btn => {
   btn.addEventListener('click', populateFirst);

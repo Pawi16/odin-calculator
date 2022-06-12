@@ -18,8 +18,16 @@ function multiply(a, b) {
   return a * b;
 }
 
+function checkDot(string,removeClick){
+  let StringArray = string.split('');
+  if (StringArray.some(char => char ==='.') === true){
+    removeClick()
+  }
+}
+
 function populateFirst(e) {
   firstString += e.target.textContent;
+  checkDot(firstString,() => dotBtn.removeEventListener('click',populateFirst))
   console.log(firstString);
   firstNumber = Number(firstString);
   console.log(firstNumber);
@@ -31,6 +39,7 @@ function populateFirst(e) {
 
 function populateSecond(e) {
   secondString += e.target.textContent;
+  checkDot(secondString,() => dotBtn.removeEventListener('click',populateSecond));
   secondNumber = Number(secondString);
   console.log(firstNumber);
   console.log(operator);
@@ -48,7 +57,7 @@ function populateSecond(e) {
 }
 
 function populateOperatorSecond(e) {
-  
+  dotBtn.addEventListener('click',populateSecond);
   firstNumber = operate(operator,firstNumber,secondNumber);
   secondString = '';
   secondNumber = 0;
@@ -94,6 +103,9 @@ function populateOperatorOne(e) {
 }
 
 function operate(operator, a, b) {
+  if(a==='error'){
+    return 'error';
+  }
   switch (operator) {
     case '+':
       return sum(a, b);
@@ -102,6 +114,9 @@ function operate(operator, a, b) {
     case '*':
       return multiply(a, b);
     case '/':
+      if(b===0){
+        return 'error';
+      }
       return divide(a, b);
   }
 }
@@ -121,7 +136,7 @@ function clear() {
     btn.removeEventListener('click',populateOperatorSecond);
     btn.addEventListener('click',populateOperatorOne);
   })
-  firstDisplay = '';
+  firstDisplay = '0';
   secondDisplay = '';
   operatorDisplay = '';
   textDisplay.textContent = firstDisplay + ' ' + operatorDisplay + ' ' + secondDisplay + ' ';
@@ -137,9 +152,10 @@ let numberBtn = document.querySelectorAll('.numberBtn');
 let result = 0;
 let clearBtn = document.querySelector('#clearBtn');
 let equalBtn = document.querySelector('#equalBtn');
-let firstDisplay = ' ';
-let secondDisplay = ' ';
-let operatorDisplay = ' ';
+let firstDisplay = '0';
+let secondDisplay = '';
+let operatorDisplay = '';
+let dotBtn = document.querySelector('.dot');
 
 textDisplay.textContent = firstDisplay + ' ' + operatorDisplay + ' ' + secondDisplay + ' ';
 
@@ -160,7 +176,7 @@ equalBtn.onclick = function () {
     btn.removeEventListener('click',populateOperatorSecond);
     btn.addEventListener('click',populateOperatorOne);
   })
-  firstDisplay = '';
+  firstDisplay = '0';
   secondDisplay = '';
   operatorDisplay = '';
 };

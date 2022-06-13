@@ -1,0 +1,58 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 230px;
+}
+
+#btn-container{
+  display: flex;
+  gap: 10px;
+}
+
+#digit-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 170px;
+  gap: 10px;
+}
+
+#operator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50px;
+}
+
+.digit {
+  width: 50px;
+  height: 50px;
+  flex-direction: row-reverse;
+}
+
+#result {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
+  height: 50px;
+
+}
+
+.operator {
+  flex: 1;
+}

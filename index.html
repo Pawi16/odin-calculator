@@ -8,11 +8,21 @@
   <title>Calculator</title>
   <script src="./js/script.js" defer></script>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
     <div id="result">0</div>
+    <div id="top-container">
+      <button class="digit topBtn" id="clearBtn">clear</button>
+      <button class="digit topBtn" id="deleteBtn">🔙</button>
+      <button class="digit topBtn" id="equalBtn">=</button>
+    </div>
     <div id="btn-container">
       <div id="digit-container">
         <button class="digit numberBtn">7</button>
@@ -24,21 +34,19 @@
         <button class="digit numberBtn">1</button>
         <button class="digit numberBtn">2</button>
         <button class="digit numberBtn">3</button>
-        <button class="digit numberBtn">0</button>
+        <button class="digit numberBtn zero">0</button>
         <button class="digit numberBtn dot">.</button>
       </div>
-      
+
       <div id="operator-container">
         <button class="operator ">+</button>
         <button class="operator ">-</button>
         <button class="operator ">*</button>
         <button class="operator ">/</button>
       </div>
-      
+
     </div>
-    <button id="equalBtn">=</button>
-    <button id="clearBtn">clear</button>
-    
+
   </div>
 
 

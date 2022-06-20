@@ -156,6 +156,7 @@ let firstDisplay = '0';
 let secondDisplay = '';
 let operatorDisplay = '';
 let dotBtn = document.querySelector('.dot');
+let deleteBtn = document.querySelector('#deleteBtn');
 
 textDisplay.textContent = firstDisplay + ' ' + operatorDisplay + ' ' + secondDisplay + ' ';
 

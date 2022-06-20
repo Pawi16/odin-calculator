@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: medium;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -10,13 +12,27 @@ body{
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: #87805E;
+  background-color: whitesmoke;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  text-align: center;
 }
 
 .container {
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  background-color: #EDDFB3;
   gap: 10px;
-  width: 230px;
+  width: 256px;
+  border-radius: 5px;
+  color: #87805E;
 }
 
 #btn-container{
@@ -42,17 +58,49 @@ body{
   width: 50px;
   height: 50px;
   flex-direction: row-reverse;
+  background-color: white;
+  border-style: none;
+  border-radius: 3px;
+  color: #87805E;
 }
 
 #result {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding: 10px;
   
+  border-radius: 3px;
   height: 50px;
+  background-color: white;
 
+}
+
+.topBtn{
+  background-color: #D8CCA3;
+  color: #87805E;
+}
+
+#top-container{
+  display: flex;
+  gap: 10px;
+  
+}
+
+#equalBtn{
+  width: 110px;
+  background-color: #87805E;
+  color: #EDDFB3;
 }
 
 .operator {
   flex: 1;
+  background-color: #D8CCA3;
+  border-style: none;
+  border-radius: 3px;
+  color: #87805E;
+}
+
+.zero {
+  width: 110px;
 }

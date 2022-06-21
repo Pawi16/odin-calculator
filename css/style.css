@@ -13,7 +13,7 @@ body{
   align-items: center;
   height: 100vh;
   color: #87805E;
-  background-color: whitesmoke;
+  background-color: #76BA99;
   padding: 0;
   margin: 0;
 }
@@ -25,13 +25,13 @@ button {
 }
 
 .container {
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   background-color: #EDDFB3;
   gap: 10px;
-  width: 256px;
-  border-radius: 5px;
+  width: 266px;
+  border-radius: 10px;
   color: #87805E;
 }
 
@@ -60,9 +60,29 @@ button {
   flex-direction: row-reverse;
   background-color: white;
   border-style: none;
-  border-radius: 3px;
+  border-radius: 10px;
+  color: #87805E;
+  cursor: pointer;
+  transition: .5s;
+  outline: none;
+  
+}
+#equalBtn:active{
+  background-color: whitesmoke;
+  box-shadow: 1px #2c2c2c ; 
   color: #87805E;
 }
+
+.operator:active,.topBtn:active {
+  background-color: whitesmoke;
+  color: #D8CCA3;
+}
+
+#digit-container .digit:active{
+  background-color: #87805E;
+  color: white;
+}
+
 
 #result {
   display: flex;
@@ -70,7 +90,7 @@ button {
   justify-content: flex-end;
   padding: 10px;
   
-  border-radius: 3px;
+  border-radius: 10px;
   height: 50px;
   background-color: white;
 
@@ -97,10 +117,12 @@ button {
   flex: 1;
   background-color: #D8CCA3;
   border-style: none;
-  border-radius: 3px;
+  border-radius: 10px;
   color: #87805E;
+  transition: .3s;
 }
 
 .zero {
   width: 110px;
 }
+
